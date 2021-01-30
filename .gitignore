@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# netlify
+/.netlify/
+
 # production
 /build
 
@@ -32,3 +35,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Local Netlify folder
+.netlify
