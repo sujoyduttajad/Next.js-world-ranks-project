@@ -1,18 +1,17 @@
-import React, {useState} from 'react';
-import styles from '../styles/Home.module.css'
-import Layout from '../src/components/Layout/Layout'
-import SearchInput from '../src/components/SearchInput/SearchInput'
-import CountriesTable from '../src/components/CountriesTable/CountriesTable';
+import React, { useState } from "react";
+import styles from "../styles/Home.module.css";
+import Layout from "../src/components/Layout/Layout";
+import SearchInput from "../src/components/SearchInput/SearchInput";
+import CountriesTable from "../src/components/CountriesTable/CountriesTable";
 
+export default function Home({ countries }) {
+  const [keyword, setKeyword] = useState("");
 
-export default function Home({countries}) {
-  
-  const [keyword, setKeyword] = useState('');
-
-  const filteredCountries = countries.filter((country) => 
-    country.name.toLowerCase().includes(keyword) ||
-    country.region.toLowerCase().includes(keyword) ||
-    country.subregion.toLowerCase().includes(keyword) 
+  const filteredCountries = countries.filter(
+    (country) =>
+      country.name.toLowerCase().includes(keyword) ||
+      country.region.toLowerCase().includes(keyword) ||
+      country.subregion.toLowerCase().includes(keyword)
   );
 
   const onInputChange = (e) => {
@@ -23,20 +22,18 @@ export default function Home({countries}) {
   return (
     <Layout>
       <div className={styles.counts}>Found {countries.length} countries</div>
-      <SearchInput 
+      <SearchInput
         placeholder="Filter by Name, Region or Subregion"
-        onChange={onInputChange} />
-      <CountriesTable countries={filteredCountries}/>
-    
+        onChange={onInputChange}
+      />
+      <CountriesTable countries={filteredCountries} />
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
-  
   const res = await fetch("https://restcountries.eu/rest/v2/all");
   const countries = await res.json();
-  
 
   return {
     props: {
@@ -44,4 +41,3 @@ export const getStaticProps = async () => {
     },
   };
 };
-
