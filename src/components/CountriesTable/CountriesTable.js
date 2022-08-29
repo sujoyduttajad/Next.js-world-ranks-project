@@ -25,7 +25,7 @@ const SortArrow = ({ direction }) => {
       </div>
     );
   }
-  if (direction === "desc") {
+  else if (direction === "desc") {
     return (
       <div className={styles.heading_arrow}>
         <KeyboardArrowDownRounded color="inherit" />
@@ -39,6 +39,7 @@ const SortArrow = ({ direction }) => {
     );
   }
 };
+
 const CountriesTable = ({ countries }) => {
   const [direction, setDirection] = useState("");
   const [value, setValue] = useState("");
