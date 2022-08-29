@@ -4,8 +4,8 @@ import Layout from "../src/components/Layout/Layout";
 import SearchInput from "../src/components/SearchInput/SearchInput";
 import CountriesTable from "../src/components/CountriesTable/CountriesTable";
 
-export const getInitialProps = async () => {
-  const res = await fetch("https://restcountries.com/rest/v3.1/all");
+export const getStaticProps = async () => {
+  const res = await fetch("https://restcountries.com/v2/all");
   const countries = await res.json();
 
   return {
