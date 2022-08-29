@@ -17,7 +17,6 @@ export const getStaticProps = async () => {
 
 export default function Home({ countries }) {
   const [keyword, setKeyword] = useState("");
-  console.log(countries)
 
   const filteredCountries = countries && countries.filter(
     (country) =>
