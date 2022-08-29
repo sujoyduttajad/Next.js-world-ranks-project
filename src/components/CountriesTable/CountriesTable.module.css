@@ -1,6 +1,11 @@
 .heading {
     display: flex;
     padding: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+    z-index: 5000;
+    background-color: #f9f9f9;
   }
   
   .heading button {
