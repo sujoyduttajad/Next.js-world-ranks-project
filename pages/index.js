@@ -4,6 +4,17 @@ import Layout from "../src/components/Layout/Layout";
 import SearchInput from "../src/components/SearchInput/SearchInput";
 import CountriesTable from "../src/components/CountriesTable/CountriesTable";
 
+export const getInitialProps = async () => {
+  const res = await fetch("https://restcountries.com/rest/v3.1/all");
+  const countries = await res.json();
+
+  return {
+    props: {
+      countries,
+    },
+  };
+};
+
 export default function Home({ countries }) {
   const [keyword, setKeyword] = useState("");
   console.log(countries)
@@ -32,13 +43,4 @@ export default function Home({ countries }) {
   );
 }
 
-export const getInitialProps = async () => {
-  const res = await fetch("https://restcountries.com/rest/v2/all");
-  const countries = await res.json();
 
-  return {
-    props: {
-      countries,
-    },
-  };
-};
