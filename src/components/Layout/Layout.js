@@ -38,7 +38,7 @@ const Layout = ({ children, title = "World Ranks" }) => {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+    <div>
       <header className={styles.header}>
         <Link href="/">
           <svg
@@ -72,7 +72,7 @@ const Layout = ({ children, title = "World Ranks" }) => {
           <Brightness6Rounded />
         </button>
       </header>
-
+      </div>
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
