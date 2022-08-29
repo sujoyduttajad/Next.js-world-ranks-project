@@ -19,7 +19,11 @@ const orderBy = (countries, value, direction) => {
 
 const SortArrow = ({ direction }) => {
   if (!direction) {
-    return <></>;
+    return (
+      <div className={styles.heading_arrow}>
+        <KeyboardArrowDownRounded color="inherit" />
+      </div>
+    );
   }
   if (direction === "desc") {
     return (
@@ -59,25 +63,20 @@ const CountriesTable = ({ countries }) => {
     <div>
       <div className={styles.heading}>
         <div className={styles.heading_flag}></div>
-
         <button
           className={styles.heading_name}
           onClick={() => setValueAndDirection("name")}
         >
           <div>Name</div>
-
           {value === "name" && <SortArrow direction={direction} />}
         </button>
-
         <button
           className={styles.heading_population}
           onClick={() => setValueAndDirection("population")}
         >
           <div>Population</div>
-
           {value === "population" && <SortArrow direction={direction} />}
         </button>
-
         <button
           className={styles.heading_area}
           onClick={() => setValueAndDirection("area")}
@@ -85,16 +84,13 @@ const CountriesTable = ({ countries }) => {
           <div>
             Area (km<sup style={{ fontSize: "0.5rem" }}>2</sup>)
           </div>
-
           {value === "area" && <SortArrow direction={direction} />}
         </button>
-
         <button
           className={styles.heading_gini}
           onClick={() => setValueAndDirection("gini")}
         >
           <div>Gini</div>
-
           {value === "gini" && <SortArrow direction={direction} />}
         </button>
       </div>
@@ -105,7 +101,6 @@ const CountriesTable = ({ countries }) => {
             <div className={styles.flag}>
               <img src={country.flag} alt={country.name} />
             </div>
-
             <div className={styles.name}>{country.name}</div>
             <div className={styles.population}>{country.population}</div>
             <div className={styles.area}>{country.area || 0}</div>
