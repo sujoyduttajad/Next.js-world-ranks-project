@@ -6,8 +6,9 @@ import CountriesTable from "../src/components/CountriesTable/CountriesTable";
 
 export default function Home({ countries }) {
   const [keyword, setKeyword] = useState("");
+  console.log(countries)
 
-  const filteredCountries = countries.filter(
+  const filteredCountries = countries && countries.filter(
     (country) =>
       country.name.toLowerCase().includes(keyword) ||
       country.region.toLowerCase().includes(keyword) ||
@@ -31,7 +32,7 @@ export default function Home({ countries }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getInitialProps = async () => {
   const res = await fetch("https://restcountries.com/rest/v2/all");
   const countries = await res.json();
 
