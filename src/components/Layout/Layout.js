@@ -30,6 +30,8 @@ const Layout = ({ children, title = "World Ranks" }) => {
     document.documentElement.setAttribute("data-theme", theme);
   };
 
+  const date = new Date();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -73,7 +75,9 @@ const Layout = ({ children, title = "World Ranks" }) => {
 
       <main className={styles.main}>{children}</main>
 
-      <footer className={styles.footer}>@ Sujoy Dutta</footer>
+      <footer className={styles.footer}>
+        @{date.getFullYear()} build with &#x2764; by Sujoy Dutta
+      </footer>
     </div>
   );
 };
