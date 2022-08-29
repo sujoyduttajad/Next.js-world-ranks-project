@@ -133,7 +133,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getInitialProps = async ({ params }) => {
   const country = await getCountry(params.id);
 
   return {
